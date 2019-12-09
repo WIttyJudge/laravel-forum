@@ -1,6 +1,5 @@
 # Package I used.
 * * *
-
 ###### Testing & Debugging
 
 * [Debug Bar](https://github.com/barryvdh/laravel-debugbar) - Integrates PHP Debug Bar with Laravel
