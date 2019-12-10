@@ -7,7 +7,7 @@
     <div class="flex justify-center">
         <div class="md:w-1/2 lg:w-1/3 my-8 md:my-20">
 
-            <div class="text-4xl font-bold text-gray-700 text-center mb-2">{{ __('Register') }}</div>
+            <div class="text-4xl font-bold text-gray-700 text-center mb-2">{{ __('Sign up') }}</div>
 
             <div class="rounded p-8 border-gray-600 shadow-xl bg-white">
                 <form method="POST" action="{{ route('register') }}">
