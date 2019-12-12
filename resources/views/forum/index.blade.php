@@ -24,9 +24,11 @@
                                 <b class="text-gray-800">{{ $thread->title }}</b>
                                 <p class="text-gray-600">{{ substr($thread->body, 0, 100)  }}..</p>
 
-                                <div class="flex pt-4">
-                                    <div class="flex">
-                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" alt="" class="img-circle w-6 rounded-full mr-3">
+                                <div class="flex pt-4 items-center">
+                                    <div class="flex mr-4">
+                                        <div class="thread-avatar">
+                                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" alt="" class="img-circle w-6 rounded-full mr-3">
+                                         </div>
 
                                         <a href="#">
                                             <span class="text-teal-600 text-sm mr-4 hover:underline">{{ $thread->user->name }}</span>
@@ -36,9 +38,12 @@
                                     </div>
 
                                     <div class="flex">
-
+                                        <span class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1">
+                                            Blade
+                                        </span>
                                     </div>
                                 </div>
+
                             </div>
                             <hr>
                         @endforeach
@@ -46,7 +51,16 @@
 
                     <div class="w-full md:w-1/4 pl-8">
                         <a href="" class="block text-center py-2 bg-teal-600 text-white rounded outline-none
-                            focus:bg-teal-500 hover:bg-teal-500">Create Thread</a>
+                            focus:bg-teal-500 hover:bg-teal-500 mb-4">Create Thread</a>
+
+                        <div class="flex flex-col">
+                            <b class="text-gray-500 text-xs font-bold tracking-wide uppercase">tags</b>
+                            <ul>
+                                @foreach ($tags as $tag)
+                                <li class="text-gray-700"> {{ $tag->name }} </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
 
                 </div>

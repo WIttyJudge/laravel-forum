@@ -42,4 +42,9 @@ class Thread extends Model
     {
         return $this->belongsTo(\App\User::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

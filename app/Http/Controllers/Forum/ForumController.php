@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Forum;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tag;
 use App\Models\Thread;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class ForumController extends Controller
     public function index()
     {
         $threads = Thread::latest()->with('user')->get();
-        return view('forum.index', compact('threads'));
+        $tags = Tag::get();
+        return view('forum.index', compact(['threads', 'tags']));
     }
 
     /**
