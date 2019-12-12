@@ -57,7 +57,7 @@
 
 
                     <button type="submit"
-                        class="p-2 bg-teal-600 text-white rounded hover:bg-teal-500 focus:bg-teal-500">
+                        class="py-2 px-4 bg-teal-600 text-white rounded hover:bg-teal-500 focus:bg-teal-500">
                         {{ __('Register') }}
                     </button>
                 </form>

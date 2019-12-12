@@ -7,7 +7,7 @@
 ###### Utilities
 
 * [Artisan View](https://github.com/svenluijten/artisan-view) - Manage the views in Laravel projects via artisan
-* [Eloquent Sluggable]() - Create slugs for Eloquent models.
+* [Eloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable) - Create slugs for Eloquent models.
 
 ###### Development Setup
 * [Homestead](https://laravel.com/docs/6.x/homestead) - Official Vagrant box for Laravel.

@@ -3,14 +3,21 @@
 namespace App\Http\Controllers\Forum;
 
 use App\Http\Controllers\Controller;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
 
+    /**
+     * Shows the main page with all threads.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('forum.index');
+        $threads = Thread::latest()->with('user')->get();
+        return view('forum.index', compact('threads'));
     }
 
     /**

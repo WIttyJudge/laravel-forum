@@ -13,7 +13,7 @@
     <header>
         <nav class="text-gray-600 bg-white border-b">
             <div class="container mx-auto">
-                <div class="flex py-8">
+                <div class="flex py-6">
 
                     <div class="flex flex-shrink-0 text-gray mr-6">
                         <svg class="fill-current text-teal-600 h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
