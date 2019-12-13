@@ -29,7 +29,7 @@ class ForumController extends Controller
      */
     public function create()
     {
-        //
+        return view('forum.create');
     }
 
     public function store(Request $request)

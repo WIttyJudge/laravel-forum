@@ -41,7 +41,7 @@
                                 Articles
                             </a>
                             <a href="{{ route('forum.index') }}"
-                                class="block lg:inline-block text-gray-600 hover:underline mr-4">
+                                class="{{ setActive('forum.index', 'text-orange-800') }} block lg:inline-block text-gray-600 hover:underline mr-4">
                                 Forum
                             </a>
                             <a href="#responsive-header"
@@ -84,5 +84,7 @@
     </main>
 
 </body>
+
+{{-- <script src="{!! asset('js/app.js') !!}"></script> --}}
 
 </html>

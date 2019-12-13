@@ -13,7 +13,7 @@ class CreateThreadTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('thread_tag', function (Blueprint $table) {
+        Schema::create('tag_thread', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('thread_id');
             $table->unsignedInteger('tag_id');

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use \Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Sluggable;
 
 class Thread extends Model
 {
@@ -35,9 +36,17 @@ class Thread extends Model
     }
 
     /**
-     * Relationship with user. One To Many.
+     * Shows content of body column.
      *
+     * @param integer $limit
+     * @param string $end
+     * @return string
      */
+    public function showExcerpt(int $limit = 100, string $end = '..')
+    {
+        return Str::limit($this->body, $limit, $end);
+    }
+
     public function user()
     {
         return $this->belongsTo(\App\User::class);

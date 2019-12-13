@@ -3,16 +3,7 @@
 @section('title', 'Forum')
 
 @section('content')
-        <div class="bg-white border-b">
-            <div class="container mx-auto">
-                <div class="flex justify-between py-2">
-                    <h1 class="text-xl text-gray-800 self-center">Forum</h1>
-                    <form action="" method="">
-                        <input type="search" placeholder="Search for threads..." class="py-3 px-2 border-2 border-gray-300 rounded outline-none focus:border-teal-600">
-                    </form>
-                </div>
-            </div>
-        </div>
+        @include('partials.search-field')
 
         <div class="h-full bg-gray-200 pt-6">
             <div class="container mx-auto">
@@ -21,8 +12,8 @@
                     <div class="w-full md:w-3/4 bg-white rounded">
                         @foreach ($threads as $thread)
                             <div class="thread-card p-4">
-                                <b class="text-gray-800">{{ $thread->title }}</b>
-                                <p class="text-gray-600">{{ substr($thread->body, 0, 100)  }}..</p>
+                                <b class="text-gray-800">{{ Str::title($thread->title) }}</b>
+                                <p class="text-gray-600">{{ $thread->showExcerpt() }}</p>
 
                                 <div class="flex pt-4 items-center">
                                     <div class="flex mr-4">
@@ -38,9 +29,11 @@
                                     </div>
 
                                     <div class="flex">
-                                        <span class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1">
-                                            Blade
-                                        </span>
+                                        @foreach ($thread->tags as $tag)
+                                           <span class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1 mr-2">
+                                                {{ $tag->name }}
+                                            </span>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -50,7 +43,7 @@
                     </div>
 
                     <div class="w-full md:w-1/4 pl-8">
-                        <a href="" class="block text-center py-2 bg-teal-600 text-white rounded outline-none
+                        <a href=" {{ route('forum.create') }} " class="block text-center py-2 bg-teal-600 text-white rounded outline-none
                             focus:bg-teal-500 hover:bg-teal-500 mb-4">Create Thread</a>
 
                         <div class="flex flex-col">
