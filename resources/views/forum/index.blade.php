@@ -12,17 +12,15 @@
                     <div class="w-full md:w-3/4 bg-white rounded">
                         @foreach ($threads as $thread)
                             <div class="thread-card p-4">
-                                <b class="text-gray-800">{{ Str::title($thread->title) }}</b>
+                                <a href="{{ route('forum.show', $thread->slug) }}" class="text-gray-800 font-bold hover:underline">{{ Str::title($thread->title) }}</a>
                                 <p class="text-gray-600">{{ $thread->showExcerpt() }}</p>
 
                                 <div class="flex pt-4 items-center">
                                     <div class="flex mr-4">
-                                        <div class="thread-avatar">
-                                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" alt="" class="img-circle w-6 rounded-full mr-3">
-                                         </div>
+                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" alt="" class="img-circle w-6 rounded-full mr-3">
 
-                                        <a href="#">
-                                            <span class="text-teal-600 text-sm mr-4 hover:underline">{{ $thread->user->name }}</span>
+                                        <a href="#" class="text-teal-600 text-sm mr-4 hover:underline self-center">
+                                            {{ $thread->user->name }}
                                         </a>
 
                                         <p class="text-gray-700 text-sm self-center">{{ $thread->created_at->diffForHumans() }}</p>
@@ -30,7 +28,7 @@
 
                                     <div class="flex">
                                         @foreach ($thread->tags as $tag)
-                                           <span class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1 mr-2">
+                                            <span class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1 mr-2">
                                                 {{ $tag->name }}
                                             </span>
                                         @endforeach

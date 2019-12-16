@@ -6,20 +6,12 @@ use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Model;
 use \Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Thread extends Model
 {
     use Sluggable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'title',
-        'body'
-    ];
+    use SluggableScopeHelpers;
 
     /**
      * Return the sluggable configuration array for this model.
@@ -34,6 +26,16 @@ class Thread extends Model
             ]
         ];
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'body'
+    ];
 
     /**
      * Shows content of body column.

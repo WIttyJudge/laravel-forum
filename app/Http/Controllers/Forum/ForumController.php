@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Forum;
 
-use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use App\Models\Thread;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ForumController extends Controller
 {
@@ -17,8 +17,13 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $threads = Thread::latest()->with('user')->get();
+        $threads = Thread::latest()
+            ->with('user')
+            ->with('tags')
+            ->get();
+
         $tags = Tag::get();
+
         return view('forum.index', compact(['threads', 'tags']));
     }
 
@@ -38,14 +43,15 @@ class ForumController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified thread.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $thread = Thread::findBySlugOrFail($slug);
+        return view('forum.show', compact('thread'));
     }
 
     /**
