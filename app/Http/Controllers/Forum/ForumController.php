@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Thread;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreThreadRequest;
 
 class ForumController extends Controller
 {
@@ -18,8 +19,7 @@ class ForumController extends Controller
     public function index()
     {
         $threads = Thread::latest()
-            ->with('user')
-            ->with('tags')
+            ->with(['user', 'tags'])
             ->get();
 
         $tags = Tag::get();
@@ -37,9 +37,19 @@ class ForumController extends Controller
         return view('forum.create');
     }
 
-    public function store(Request $request)
+    /**
+     * Get new data and save it in the database
+     *
+     * @param \App\Http\Requests\StoreThreadRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreThreadRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        Thread::create($validated);
+
+        return redirect()->route('forum.index');
     }
 
     /**

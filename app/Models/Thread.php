@@ -34,7 +34,8 @@ class Thread extends Model
      */
     protected $fillable = [
         'title',
-        'body'
+        'body',
+        'user_id'
     ];
 
     /**
