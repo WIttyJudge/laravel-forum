@@ -10,7 +10,7 @@
             <div class="flex justify-center">
                 <div class="md:w-1/3 lg:w-1/2 my-8 md:my-20">
 
-                    <div class="flex flex-col p-4 bg-gray-100 border-2 rounded">
+                    <div class="flex flex-col p-4 shadow-xl bg-white rounded">
                         <form action="{{ route('forum.store') }}" method="POST">
                             @csrf
 

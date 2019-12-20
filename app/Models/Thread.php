@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
-
 use Illuminate\Database\Eloquent\Model;
 use \Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Support\Str;
 
 class Thread extends Model
 {
@@ -41,7 +40,7 @@ class Thread extends Model
     /**
      * Shows content of body column.
      *
-     * @param integer $limit
+     * @param int $limit
      * @param string $end
      * @return string
      */
