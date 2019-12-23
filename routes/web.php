@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::namespace('Forum')
     ->group(function(){
         Route::resource('forum', 'ForumController')->names('forum');
+
+        Route::get('forum/tags/{tag}', 'TagController@index')->name('tag.index');
     });
 
 Route::namespace('About')

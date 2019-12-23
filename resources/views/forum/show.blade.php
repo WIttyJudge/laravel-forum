@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Forum')
+@section('title', "{$thread->title} | Forum")
 
 @section('content')
     <div class="h-screen bg-gray-200">
@@ -26,6 +26,7 @@
                     </div>
 
                     <div>
+                        <h2>{{ $thread->title }}</h2>
                         <p>{{ $thread->body }}</p>
                     </div>
                 </div>

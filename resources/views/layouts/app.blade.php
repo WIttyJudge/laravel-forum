@@ -41,24 +41,24 @@
                                 Articles
                             </a>
                             <a href="{{ route('forum.index') }}"
-                                class="{{ setActive('forum.index', 'text-orange-800') }} block lg:inline-block text-gray-600 hover:underline mr-4">
+                                class="{{ set_active('forum', 'text-teal-500') }} block lg:inline-block text-gray-600 hover:underline mr-4">
                                 Forum
                             </a>
                             <a href="#responsive-header"
                                 class="block lg:inline-block text-gray-600 hover:underline mr-4">
                                 Blog
                             </a>
-                            <a href="{{ route('about') }}" class="block lg:inline-block text-gray-600 hover:underline">
+                            <a href="{{ route('about') }}" class="{{ set_active('about', 'text-teal-500') }} block lg:inline-block text-gray-600 hover:underline">
                                 About
                             </a>
                         </div>
 
                         <div>
                             @guest
-                            <a href="{{ route('login') }}" class="text-gray-600 hover:underline mr-4">Login</a>
+                            <a href="{{ route('login') }}" class="{{ set_active('login', 'text-teal-500') }} text-gray-600 hover:underline mr-4">Login</a>
 
                             <a href="{{ route('register') }}"
-                                class="text-gray-600 hover:underline border-white hover:text-gray">Sign up</a>
+                                class="{{ set_active('register', 'text-teal-500') }} text-gray-600 hover:underline border-white hover:text-gray">Sign up</a>
 
                             @else
 
@@ -84,6 +84,11 @@
         @yield('content')
     </main>
 
+    <footer>
+        <div class="container mx-auto">
+            <h1>footer</h1>
+        </div>
+    </footer>
 </body>
 
 {{-- <script src="{!! asset('js/app.js') !!}"></script> --}}

@@ -14,8 +14,10 @@ class TagController extends Controller
      * @param string $slug
      * @return void
      */
-    public function show($slug)
+    public function index(Tag $tag)
     {
-
+        $threads = $tag->threads;
+        $tags = $tag->pluck('name');
+        return view('forum.index', compact(['threads', 'tags']));
     }
 }

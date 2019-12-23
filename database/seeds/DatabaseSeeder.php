@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Thread;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,7 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // $this->call([
+        //     UsersTableSeeder::class
+        //     ]);
+
         factory(Thread::class, 30)->create();
     }
 }

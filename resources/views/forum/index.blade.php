@@ -5,7 +5,7 @@
 @section('content')
         @include('partials.search-field')
 
-        <div class="h-full bg-gray-200 pt-6">
+        <div class="h-auto bg-gray-200 pt-6">
             <div class="container mx-auto">
 
                 <div class="flex flex-wrap justify-between">
@@ -34,7 +34,6 @@
                                         @endforeach
                                     </div>
                                 </div>
-
                             </div>
                             <hr>
                         @endforeach
@@ -48,7 +47,7 @@
                             <b class="text-gray-500 text-xs font-bold tracking-wide uppercase">tags</b>
                             <ul>
                                 @foreach ($tags as $tag)
-                                <li class="text-gray-700"> {{ $tag->name }} </li>
+                                    <li class="text-gray-700"> {{ $tag }} </li>
                                 @endforeach
                             </ul>
                         </div>

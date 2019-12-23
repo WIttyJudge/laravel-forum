@@ -11,6 +11,13 @@ class Tag extends Model
     use Sluggable;
     use SluggableScopeHelpers;
 
+    /**
+     * Indicate if the model should be timestamps
+     *
+     * @var boolean
+     */
+    public $timestamps = false;
+
     public function sluggable(): array
     {
         return [
@@ -21,11 +28,14 @@ class Tag extends Model
     }
 
     /**
-     * Indicate if the model should be timestamps
+     * Undocumented function
      *
-     * @var boolean
+     * @return string
      */
-    public $timestamps = false;
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function threads()
     {
