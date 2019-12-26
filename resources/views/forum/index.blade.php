@@ -12,7 +12,8 @@
                     <div class="w-full md:w-3/4 bg-white rounded">
                         @foreach ($threads as $thread)
                             <div class="thread-card p-4">
-                                <a href="{{ route('forum.show', $thread->slug) }}" class="text-gray-800 font-bold hover:underline">{{ Str::title($thread->title) }}</a>
+                                <a href="{{ route('forum.show', $thread->slug) }}"
+                                    class="text-gray-800 font-bold hover:underline">{{ show_title($thread->title) }}</a>
                                 <p class="text-gray-600">{{ $thread->showExcerpt() }}</p>
 
                                 <div class="flex pt-4 items-center">
@@ -28,9 +29,9 @@
 
                                     <div class="flex">
                                         @foreach ($thread->tags as $tag)
-                                            <span class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1 mr-2">
+                                            <a href="{{ route('tag.show', $tag->slug) }}" class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1 mr-2">
                                                 {{ $tag->name }}
-                                            </span>
+                                            </a>
                                         @endforeach
                                     </div>
                                 </div>
@@ -46,8 +47,13 @@
                         <div class="flex flex-col">
                             <b class="text-gray-500 text-xs font-bold tracking-wide uppercase">tags</b>
                             <ul>
+                                <li class="text-gray-700">
+                                    <a href="{{ route('forum.index') }}">All</a>
+                                </li>
                                 @foreach ($tags as $tag)
-                                    <li class="text-gray-700"> {{ $tag }} </li>
+                                    <li class="text-gray-700">
+                                        <a href="{{ route('tag.show', $tag->slug) }}">{{ $tag->name }}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>

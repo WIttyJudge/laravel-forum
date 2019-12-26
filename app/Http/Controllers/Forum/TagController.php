@@ -9,15 +9,15 @@ use App\Http\Controllers\Controller;
 class TagController extends Controller
 {
     /**
-     * Undocumented function
+     * Show the specified posts by tag.
      *
      * @param string $slug
      * @return void
      */
-    public function index(Tag $tag)
+    public function show(Tag $tag)
     {
         $threads = $tag->threads;
-        $tags = $tag->pluck('name');
+        $tags = $tag->all();
         return view('forum.index', compact(['threads', 'tags']));
     }
 }

@@ -22,7 +22,7 @@ class ForumController extends Controller
             ->with(['user', 'tags'])
             ->get();
 
-        $tags = Tag::all()->pluck('name');
+        $tags = Tag::all();
 
         return view('forum.index', compact(['threads', 'tags']));
     }

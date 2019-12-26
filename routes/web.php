@@ -21,7 +21,7 @@ Route::namespace('Forum')
     ->group(function(){
         Route::resource('forum', 'ForumController')->names('forum');
 
-        Route::get('forum/tags/{tag}', 'TagController@index')->name('tag.index');
+        Route::get('forum/tags/{tag}', 'TagController@show')->name('tag.show');
     });
 
 Route::namespace('About')

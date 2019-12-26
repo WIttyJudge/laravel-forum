@@ -11,11 +11,6 @@ class Tag extends Model
     use Sluggable;
     use SluggableScopeHelpers;
 
-    /**
-     * Indicate if the model should be timestamps
-     *
-     * @var boolean
-     */
     public $timestamps = false;
 
     public function sluggable(): array
@@ -27,11 +22,6 @@ class Tag extends Model
         ];
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return string
-     */
     public function getRouteKeyName()
     {
         return 'slug';
