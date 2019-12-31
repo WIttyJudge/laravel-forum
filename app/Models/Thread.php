@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use \Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use \Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
@@ -21,15 +21,15 @@ class Thread extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
-            ]
+                'source' => 'title',
+            ],
         ];
     }
 
     protected $fillable = [
         'title',
         'body',
-        'user_id'
+        'user_id',
     ];
 
     /**
@@ -52,5 +52,10 @@ class Thread extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(\App\Models\Comment::class);
     }
 }

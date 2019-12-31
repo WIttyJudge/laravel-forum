@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Larastack')
+@section('title', config('app.name'))
 
 @section('content')
 <div class="container mx-auto">

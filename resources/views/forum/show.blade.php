@@ -33,6 +33,16 @@
 
                 <h1 class="w-full md:w-1/4 pl-8">something</h1>
             </div>
+
+            <div class="comments">
+                @foreach ($thread->comments as $comment)
+                    <div class="user">
+                        <p>{{ $comment->user->name }}</p>
+                        <p>{{ $comment->created_at->diffForHumans() }}</p>
+                    </div>
+                    <p>{{ $comment->body }}</p>
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection

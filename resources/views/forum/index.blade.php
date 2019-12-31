@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Forum')
+@section('title', 'Larastack | Forum')
 
 @section('content')
         @include('partials.search-field')
@@ -10,7 +10,7 @@
 
                 <div class="flex flex-wrap justify-between">
                     <div class="w-full md:w-3/4 bg-white rounded">
-                        @foreach ($threads as $thread)
+                        @forelse ($threads as $thread)
                             <div class="thread-card p-4">
                                 <a href="{{ route('forum.show', $thread->slug) }}"
                                     class="text-gray-800 font-bold hover:underline">{{ show_title($thread->title) }}</a>
@@ -37,7 +37,11 @@
                                 </div>
                             </div>
                             <hr>
-                        @endforeach
+
+                            @empty
+                                <p class="p-4">Has no threads</p>
+
+                            @endforelse
                     </div>
 
                     <div class="w-full md:w-1/4 pl-8">
