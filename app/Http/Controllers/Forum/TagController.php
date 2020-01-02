@@ -17,7 +17,7 @@ class TagController extends Controller
     public function show(Tag $tag)
     {
         $threads = $tag->threads;
-        $tags = $tag->all();
+        $tags = $tag->getAllTags();
         return view('forum.index', compact(['threads', 'tags']));
     }
 }
