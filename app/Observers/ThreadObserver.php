@@ -14,7 +14,7 @@ class ThreadObserver
      */
     public function creating(Thread $thread)
     {
-        $thread->user_id = auth()->id();
+        // $thread->user_id = auth()->id();
     }
 
     /**

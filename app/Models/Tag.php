@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
@@ -20,6 +21,16 @@ class Tag extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    /**
+     * Return all tags and sort it ny name.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public static function getAllTags(): Collection
+    {
+        return self::all()->sortBy('name');
     }
 
     public function getRouteKeyName()
