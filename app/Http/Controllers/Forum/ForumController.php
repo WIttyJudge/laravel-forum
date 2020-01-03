@@ -18,7 +18,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $threads = Thread::latest()
+        $threads = Thread::latest('id')
             ->with(['user', 'tags'])
             ->get();
 
