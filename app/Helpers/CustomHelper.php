@@ -15,8 +15,7 @@ if (! function_exists('set_active')) {
 }
 
 
-if(! function_exists('show_title'))
-{
+if(! function_exists('show_title')){
     /**
      * Convert certain string value to title case.
      *

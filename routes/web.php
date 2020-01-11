@@ -12,7 +12,6 @@
 */
 Auth::routes(['verify' => true]);
 
-
 //Main page
 Route::namespace('Welcome')
     ->group(function(){
