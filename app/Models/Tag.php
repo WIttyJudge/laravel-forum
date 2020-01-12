@@ -17,10 +17,15 @@ class Tag extends Model
     public function sluggable(): array
     {
         return [
-            'slug'=> [
-                'source' => 'name'
-            ]
+            'slug' => [
+                'source' => 'name',
+            ],
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
     /**
@@ -30,12 +35,7 @@ class Tag extends Model
      */
     public static function getAllTags(): Collection
     {
-        return self::all()->sortBy('name');
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
+        return static::all()->sortBy('name');
     }
 
     public function threads()
