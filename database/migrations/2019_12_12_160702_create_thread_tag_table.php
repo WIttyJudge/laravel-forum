@@ -17,7 +17,7 @@ class CreateThreadTagTable extends Migration
             // $table->increments('id');
             $table->unsignedInteger('thread_id');
             $table->unsignedInteger('tag_id');
-            $table->primary(['thread_id', 'tag_id']);
+            $table->unique(['thread_id', 'tag_id']);
         });
     }
 
