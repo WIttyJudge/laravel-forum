@@ -6,6 +6,9 @@ use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use \Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Thread extends Model
 {
@@ -26,6 +29,11 @@ class Thread extends Model
         ];
     }
 
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
     protected $fillable = [
         'title',
         'body',
@@ -44,17 +52,26 @@ class Thread extends Model
         return Str::limit($this->body, $limit, $end);
     }
 
-    public function user()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
     {
         return $this->belongsTo(\App\User::class);
     }
 
-    public function tags()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }
 
-    public function comments()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(): HasMany
     {
         return $this->hasMany(\App\Models\Comment::class);
     }

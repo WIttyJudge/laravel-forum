@@ -12,7 +12,6 @@
 */
 Auth::routes(['verify' => true]);
 
-
 //Main page
 Route::namespace('Welcome')
     ->group(function(){
@@ -23,6 +22,10 @@ Route::namespace('Welcome')
 Route::namespace('Forum')
     ->group(function(){
         Route::resource('forum', 'ForumController')->names('forum');
+
+        Route::get('forum/create', 'ForumController@create')
+            ->name('forum.create')
+            ->middleware('auth');
 
         Route::get('forum/tags/{tag}', 'TagController@show')->name('tag.show');
     });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThreadTagTable extends Migration
+class CreateCacheTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateThreadTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_thread', function (Blueprint $table) {
-            // $table->increments('id');
-            $table->unsignedInteger('thread_id');
-            $table->unsignedInteger('tag_id');
-            $table->unique(['thread_id', 'tag_id']);
+        Schema::create('cache', function (Blueprint $table) {
+            $table->string('key')->unique();
+            $table->mediumText('value');
+            $table->integer('expiration');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateThreadTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thread_tag');
+        Schema::dropIfExists('cache');
     }
 }

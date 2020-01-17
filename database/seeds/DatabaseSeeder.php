@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Thread;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,9 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            TagSeeder::class
+            TagSeeder::class,
+            ThreadSeeder::class,
+            CommentSeeder::class
         ]);
-
-        factory(Thread::class, 30)->create();
     }
 }

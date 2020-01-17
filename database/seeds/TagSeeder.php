@@ -24,7 +24,7 @@ class TagSeeder extends Seeder
     }
 
     /**
-     * Create a new tag using TagFactiry.
+     * Create a new tag using TagFactory.
      *
      * @param string $name
      * @return void
