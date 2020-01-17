@@ -2,14 +2,14 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    // use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -39,14 +39,18 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * Relationship with threads. One To Many.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function threads()
+    public function threads(): HasMany
     {
         return $this->hasMany(\App\Models\Thread::class);
     }
 
-    public function comments()
+    /**
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(): HasMany
     {
         return $this->hasMany(\App\Models\Comment::class);
     }

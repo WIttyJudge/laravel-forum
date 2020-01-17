@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends Model
 {
@@ -38,7 +39,10 @@ class Tag extends Model
         return static::all()->sortBy('name');
     }
 
-    public function threads()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function threads(): BelongsToMany
     {
         return $this->belongsToMany(Thread::class);
     }
