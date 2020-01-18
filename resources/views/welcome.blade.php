@@ -4,6 +4,6 @@
 
 @section('content')
 <div class="container mx-auto">
-    <h1>Main page</h1>
+    <h1>{{ $threadCount }}</h1>
 </div>
 @endsection
