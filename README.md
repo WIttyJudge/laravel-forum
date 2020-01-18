@@ -6,7 +6,7 @@
 2. Run `cp .env.example .env` or just create .env and copy text from .env.example.
 3. Run `php arisan key:generate`
 
-# Package we used.
+# Package we used
 ###### Testing & Debugging
 
 * [Debug Bar](https://github.com/barryvdh/laravel-debugbar) - Integrates PHP Debug Bar with Laravel.
