@@ -1,13 +1,12 @@
-# Project setup
-```
-composer i 
+# Requirements
+- PHP >=7.2
 
-You should copy .env.excample to the .env file. Create if you don't have in.
+# Installation
+1. Run `composer install` 
+2. Run `cp .env.example .env` or just create .env and copy text from .env.example.
+3. Run `php arisan key:generate`
 
-php arisan key:generate.
-```
-
-# Package I used.
+# Package we used.
 ###### Testing & Debugging
 
 * [Debug Bar](https://github.com/barryvdh/laravel-debugbar) - Integrates PHP Debug Bar with Laravel.
