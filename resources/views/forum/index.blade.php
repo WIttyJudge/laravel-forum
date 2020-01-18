@@ -29,7 +29,7 @@
 
                                 <div class="flex">
                                     @foreach ($thread->tags as $tag)
-                                        <a href="{{ route('tag.show', $tag->slug) }}" class="text-sm bg-gray-300 text-gray-700 rounded px-2 py-1 mr-2">
+                                        <a href="{{ route('tag.show', $tag->slug) }}" class="px-2 py-1 mr-2 text-sm bg-gray-300 text-gray-700 rounded">
                                             {{ $tag->name }}
                                         </a>
                                     @endforeach
@@ -49,13 +49,13 @@
                         focus:bg-teal-500 hover:bg-teal-500 mb-4">Create Thread</a>
 
                     <div class="flex flex-col">
-                        <b class="text-gray-500 text-xs font-bold tracking-wide uppercase">tags</b>
+                        <b class="text-gray-500 text-xs font-bold tracking-wide uppercase">Tags</b>
                         <ul>
-                            <li class="text-gray-700">
+                            <li class="py-1 px-2 text-gray-700">
                                 <a href="{{ route('forum.index') }}">All</a>
                             </li>
                             @foreach ($tags as $tag)
-                                <li class="text-gray-700">
+                                <li class="py-1 px-2 text-gray-700">
                                     <a href="{{ route('tag.show', $tag->slug) }}">{{ $tag->name }}</a>
                                 </li>
                             @endforeach

@@ -1,3 +1,12 @@
+# Project setup
+```
+composer i 
+
+You should copy .env.excample to the .env file. Create if you don't have in.
+
+php arisan key:generate.
+```
+
 # Package I used.
 ###### Testing & Debugging
 
