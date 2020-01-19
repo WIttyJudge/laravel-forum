@@ -3,7 +3,7 @@
 
 # Installation
 1. Run `composer install` 
-2. Run `cp .env.example .env` or just create .env and copy text from .env.example.
+2. Run `cp .env.example .env` or just create .env file and copy text from .env.example.
 3. Run `php arisan key:generate`
 
 # Package we used
