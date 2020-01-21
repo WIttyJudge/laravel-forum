@@ -29,15 +29,11 @@ class Thread extends Model
         ];
     }
 
+    protected $guarded = ['id'];
+
     protected $dates = [
         'created_at',
         'updated_at'
-    ];
-
-    protected $fillable = [
-        'title',
-        'body',
-        'user_id',
     ];
 
     /**
