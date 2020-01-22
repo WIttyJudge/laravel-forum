@@ -14,13 +14,13 @@ Auth::routes(['verify' => true]);
 
 //Main page
 Route::namespace('Welcome')
-    ->group(function(){
+    ->group(function () {
         Route::get('/', 'WelcomeController@index')->name('welcome');
     });
 
 //Forum pages
 Route::namespace('Forum')
-    ->group(function(){
+    ->group(function () {
         Route::resource('forum', 'ForumController')->names('forum');
 
         Route::get('forum/create', 'ForumController@create')
@@ -32,6 +32,6 @@ Route::namespace('Forum')
 
 //About page
 Route::namespace('About')
-    ->group(function(){
+    ->group(function () {
         Route::get('/about', 'AboutController@index')->name('about');
     });
