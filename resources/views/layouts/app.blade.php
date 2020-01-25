@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    {{-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> --}}
     <title> @yield('title') </title>
 </head>
 
 <body>
     <header>
-        <nav class="text-gray-600 bg-white border-b">
+        <nav class="bg-white border-b">
             <div class="container mx-auto">
                 <div class="flex py-6">
 
@@ -48,17 +49,20 @@
                                 class="block lg:inline-block text-gray-600 hover:underline mr-4">
                                 Blog
                             </a>
-                            <a href="{{ route('about') }}" class="{{ set_active('about', 'text-teal-500') }} block lg:inline-block text-gray-600 hover:underline">
+                            <a href="{{ route('about') }}"
+                                class="{{ set_active('about', 'text-teal-500') }} block lg:inline-block text-gray-600 hover:underline">
                                 About
                             </a>
                         </div>
 
                         <div>
                             @guest
-                            <a href="{{ route('login') }}" class="{{ set_active('login', 'text-teal-500') }} text-gray-600 hover:underline mr-4">Login</a>
+                            <a href="{{ route('login') }}"
+                                class="{{ set_active('login', 'text-teal-500') }} text-gray-600 hover:underline mr-4">Login</a>
 
                             <a href="{{ route('register') }}"
-                                class="{{ set_active('register', 'text-teal-500') }} text-gray-600 hover:underline border-white hover:text-gray">Sign up</a>
+                                class="{{ set_active('register', 'text-teal-500') }} text-gray-600 hover:underline border-white hover:text-gray">Sign
+                                up</a>
 
                             @else
 
@@ -66,9 +70,9 @@
                                 class="text-gray-600 hover:underline border-white hover:text-gray" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a>
 
-                                <form action="{{ route('logout') }}" id="logout-form" method="POST">
-                                    @csrf
-                                </form>
+                            <form action="{{ route('logout') }}" id="logout-form" method="POST">
+                                @csrf
+                            </form>
                             @endguest
                         </div>
 
@@ -80,7 +84,6 @@
     </header>
 
     <main>
-        @include('partials.alerts')
         @yield('content')
     </main>
 
@@ -91,6 +94,6 @@
     </footer>
 </body>
 
-{{-- <script src="{!! asset('js/app.js') !!}"></script> --}}
+<script src="{!! asset('js/app.js') !!}"></script>
 
 </html>
