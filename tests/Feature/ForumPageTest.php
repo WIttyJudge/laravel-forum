@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Models\Thread;
 use App\User;
 use Tests\TestCase;
+use App\Models\Thread;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ForumTest extends TestCase
@@ -12,10 +12,18 @@ class ForumTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function forum_page_is_available()
+    {
+        $response = $this->get(route('forum.index'));
+
+        $response->assertStatus(200);
+    }
+
+    /** @test */
     public function only_logged_user_can_visit_page_with_creation_of_thread()
     {
-        $response = $this->get('/forum/create')
-            ->assertRedirect('/login');
+        $response = $this->get(route('forum.create'))
+            ->assertRedirect(route('login'));
     }
 
     /** @test */
@@ -23,8 +31,8 @@ class ForumTest extends TestCase
     {
         $this->actingAsNewUser();
 
-        $response = $this->get('/forum/create')
-            ->assertOk();
+        $response = $this->get(route('forum.create'))
+            ->assertStatus(200);
     }
 
     /** @test */
@@ -32,7 +40,7 @@ class ForumTest extends TestCase
     {
         $this->actingAsNewUser();
 
-        $response = $this->post('/forum', $this->data());
+        $response = $this->post(route('forum.index'), $this->data());
 
         $this->assertCount(1, Thread::all());
     }
@@ -42,8 +50,8 @@ class ForumTest extends TestCase
     {
         $this->actingAsNewUser();
 
-        $response = $this->post('/forum', $this->data())
-            ->assertRedirect('/forum');
+        $response = $this->post(route('forum.store'), $this->data())
+            ->assertRedirect(route('forum.index'));
     }
 
     /** @test */
@@ -51,7 +59,7 @@ class ForumTest extends TestCase
     {
         $this->actingAsNewUser();
 
-        $response = $this->post('/forum', array_merge($this->data(), ['title' => '']));
+        $response = $this->post(route('forum.index'), array_merge($this->data(), ['title' => '']));
 
         $response->assertSessionHasErrors('title');
 
@@ -59,12 +67,12 @@ class ForumTest extends TestCase
     }
 
     /** @test */
-    public function a_title_can_has_a_maximum_60_characters()
+    public function a_title_should_has_a_maximum_60_characters()
     {
         $this->actingAsNewUser();
 
         $response = $this->post(
-            '/forum',
+            route('forum.index'),
             array_merge($this->data(), ['title' => 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttests'])
         );
 
@@ -78,7 +86,7 @@ class ForumTest extends TestCase
     {
         $this->actingAsNewUser();
 
-        $response = $this->post('/forum', array_merge($this->data(), ['body' => '']));
+        $response = $this->post(route('forum.index'), array_merge($this->data(), ['body' => '']));
 
         $response->assertSessionHasErrors('body');
 
