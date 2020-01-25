@@ -20,7 +20,7 @@ class ForumController extends Controller
     {
         $threads = Thread::latest('id')
             ->with(['user', 'tags'])
-            ->get();
+            ->paginate(15);
 
         $tags = Tag::getAllTags();
 
