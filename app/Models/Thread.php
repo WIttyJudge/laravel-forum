@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
-use \Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
+use \Cviebrock\EloquentSluggable\Sluggable;
 
 class Thread extends Model
 {
@@ -33,7 +33,7 @@ class Thread extends Model
 
     protected $dates = [
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     /**
