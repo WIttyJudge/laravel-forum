@@ -40,7 +40,7 @@ class ForumTest extends TestCase
     {
         $this->actingAsNewUser();
 
-        $response = $this->post(route('forum.index'), $this->data());
+        $response = $this->post(route('forum.store'), $this->data());
 
         $this->assertCount(1, Thread::all());
     }
@@ -104,7 +104,7 @@ class ForumTest extends TestCase
 
         $this->actingAs($newUser);
     }
-
+    
     /**
      *  Data generator for thread.
      *
