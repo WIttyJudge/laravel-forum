@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Thread;
 use App\Observers\ThreadObserver;
+use App\Repository\Thread\EloquentThreadQueries;
+use App\Repository\Thread\ThreadQueries;
 use Illuminate\Support\ServiceProvider;
 
 class ThreadServiceProvider extends ServiceProvider
@@ -15,7 +17,8 @@ class ThreadServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ThreadQueries::class,
+            EloquentThreadQueries::class);
     }
 
     /**
