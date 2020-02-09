@@ -2,14 +2,32 @@
 
 namespace App\Http\Controllers\Forum;
 
-use App\Models\Tag;
-use App\Models\Thread;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreThreadRequest;
+use App\Models\Tag;
+use App\Models\Thread;
+use App\Repository\Thread\ThreadQueries;
+use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
+
+    /**
+     * The thread queries implementation.
+     *
+     * @var ThreadQueries
+     */
+    protected $thread;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param ThreadQueries $threadQueries
+     */
+    public function __construct(ThreadQueries $threadQueries)
+    {
+        $this->thread = $threadQueries;
+    }
 
     /**
      * Shows the main page with all threads.
@@ -18,7 +36,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $threads = Thread::latest('id')
+        $threads = $this->thread->getByLatest('id')
             ->with(['user', 'tags'])
             ->paginate(15);
 
@@ -61,7 +79,7 @@ class ForumController extends Controller
      */
     public function show($slug)
     {
-        $thread = Thread::findBySlugOrFail($slug);
+        $thread = $this->thread->getBySlug($slug);
         return view('forum.show', compact('thread'));
     }
 
