@@ -9,17 +9,17 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 Auth::routes(['verify' => true]);
 
 //Main page
-Route::namespace('Welcome')
+Route::namespace ('Welcome')
     ->group(function () {
         Route::get('/', 'WelcomeController@index')->name('welcome');
     });
 
 //Forum pages
-Route::namespace('Forum')
+Route::namespace ('Forum')
     ->group(function () {
         Route::resource('forum', 'ForumController')->names('forum');
 
@@ -28,10 +28,12 @@ Route::namespace('Forum')
             ->middleware('auth');
 
         Route::get('forum/tags/{tag}', 'TagController@show')->name('tag.show');
+
+        Route::post('forum/search', 'ThreadSearchController@search')->name('forum.search.thread');
     });
 
 //About page
-Route::namespace('About')
+Route::namespace ('About')
     ->group(function () {
         Route::get('/about', 'AboutController@index')->name('about');
     });

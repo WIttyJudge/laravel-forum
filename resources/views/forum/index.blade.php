@@ -3,7 +3,18 @@
 @section('title', 'Larastack | Forum')
 
 @section('content')
-@include('partials.search-field')
+<div class="bg-white border-b">
+    <div class="container mx-auto">
+        <div class="flex justify-between py-2">
+            <h1 class="text-xl text-gray-800 self-center">Forum</h1>
+            <form action="{{ route('forum.search.thread') }}" method="POST">
+                @csrf
+                <input type="search" name="search" placeholder="Search for threads..."
+                    class="py-3 px-2 border-2 border-gray-300 rounded outline-none focus:border-teal-600">
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="h-auto bg-gray-200 pt-6">
     <div class="container mx-auto">
@@ -18,7 +29,7 @@
 
                     <div class="flex pt-4 items-center">
                         <div class="flex mr-4">
-                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80"
                                 alt="" class="img-circle w-6 rounded-full mr-3">
 
                             <a href="#" class="text-teal-600 text-sm mr-4 hover:underline self-center">

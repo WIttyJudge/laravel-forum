@@ -52,7 +52,7 @@ class ForumController extends Controller
      */
     public function create()
     {
-        $tags = Tag::all();
+        $tags = Tag::getAllTags();
         return view('forum.create', compact('tags'));
     }
 
